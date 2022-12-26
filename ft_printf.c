@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:59:53 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 05:14:35 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/26 05:16:51 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (1);
 }
-
+/*
 int	main(){
 
 
@@ -64,3 +64,4 @@ int	main(){
 	//printf("voila");
 	return (0);
 }
+*/

@@ -6,12 +6,12 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:42:27 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/25 18:55:07 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_get_len3(long n);
 

@@ -1,11 +1,11 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
+/*   pc_replace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/25 18:44:03 by snaggara          #+#    #+#             */
+/*   Created: 2022/12/25 16:31:17 by snaggara          #+#    #+#             */
 /*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -13,15 +13,18 @@
 #include "../libft.h"
 #include "../ft_printf.h"
 
-void	ft_strtoupper(char *str)
+char	*pc_replace(char *str, t_flag_list *flag, va_list *args)
 {
-	size_t	i;
+	char	*to_return;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
-		i++;
-	}
+	(void)args;
+	to_return = (char *)malloc(sizeof(char) * ft_strlen(str));
+	if (!to_return)
+		return (NULL);
+	ft_strlcpy(to_return, str, flag->length_flag + 1);
+	to_return[flag->length_flag] = '%';
+	to_return[flag->length_flag + 1] = '\0';
+	ft_strlcat(to_return, str + flag->length_flag + 2, ft_strlen(str));
+	free(str);
+	return (to_return);
 }

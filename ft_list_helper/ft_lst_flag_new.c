@@ -6,14 +6,15 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:37:09 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/25 18:53:39 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../printf.h"
+#include "../ft_printf.h"
 
-t_flag_list	*ft_lst_flag_new(int type)
+t_flag_list	*ft_lst_flag_new(int type, char *(*func_replace)
+				(char*, struct s_flag_list*, va_list*))
 {
 	t_flag_list	*first;
 
@@ -21,6 +22,7 @@ t_flag_list	*ft_lst_flag_new(int type)
 	if (!first)
 		return ((t_flag_list *) NULL);
 	(*first).type = (char)type;
+	(*first).func_replace = func_replace;
 	(*first).length_flag = 0;
 	(*first).next = NULL;
 	return (first);

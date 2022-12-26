@@ -6,18 +6,17 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:32:02 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/25 19:36:59 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../printf.h"
+#include "../ft_printf.h"
 
 char	*xup_replace(char *str, t_flag_list *flag, va_list *args)
 {
 	char	*to_return;
 	char	*number;
-	size_t	length;
 
 	number = ft_itoa_hexa(va_arg(*args, int));
 	ft_strtoupper(number);

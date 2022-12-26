@@ -6,12 +6,12 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:37:20 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/25 18:38:18 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "../printf.h"
+#include "../ft_printf.h"
 
 void	ft_lstflag_clear(t_flag_list **lst, void (*del)(void *))
 {

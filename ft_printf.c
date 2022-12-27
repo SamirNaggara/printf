@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 17:59:53 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 05:16:51 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:29:59 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,43 @@ int	ft_printf(const char *str, ...)
 	t_flag_list	**flag_list;
 	va_list		args;
 	char		*to_return;
+	size_t			size[1];
 
 	va_start(args, str);
 	flag_list = create_flag_list();
+	*size = ft_strlen(str);
 	if (!flag_list)
 		return (0);
-	to_return = ft_modify_str(flag_list, str, &args);
+
+	to_return = ft_modify_str(flag_list, str, &args, size);
 	if (!to_return)
+	{
+		ft_lstflag_clear(flag_list, free);
+		free(flag_list);
 		return (0);
-	ft_putstr(to_return);
+	}
+	ft_putstr(to_return, size);
 	ft_lstflag_clear(flag_list, free);
 	free(flag_list);
 	free(to_return);
 	va_end(args);
-	return (1);
+	return ((int)*size);
 }
-/*
+
 int	main(){
 
 
-	ft_printf("%c%c", 'a' + 256, 'b' + 256);
+	//ft_printf("bah%ca\nb", 0);
+	//char	*ptr;
+	//unsigned int i = 14748364955 ;
+	//ulong j = -9223372036854775807;
+	//j--;
+	//int nb1 = ft_printf("a%sa\n", ptr);
+	
+	int nb1 = ft_printf(" %%%% \n");
+	int nb2 = printf(" %%%% \n");
+
+	printf("Mon printf: %d\nLe vrai printf :  %d\n", nb1, nb2);
 	//printf(" %c ", '0');
 	//printf("a%s", "");
 	//printf("%s\n", ft_itoa_hexa(140723940386924));
@@ -64,4 +81,3 @@ int	main(){
 	//printf("voila");
 	return (0);
 }
-*/

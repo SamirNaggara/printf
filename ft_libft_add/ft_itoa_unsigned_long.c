@@ -6,34 +6,36 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:46:32 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:04:17 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
 
-unsigned long	ft_get_len_lg(unsigned long n);
+unsigned long long	ft_get_len_lg(unsigned long long n);
 
-char			*ft_initialise_result_lg(size_t len);
+char			*ft_initialise_result_lg(unsigned long long len);
 
-char	*ft_itoa_long(unsigned long n)
+unsigned long long	ft_power5(unsigned long long nb, unsigned long long power);
+
+char	*ft_itoa_long(unsigned int n)
 {
 	char			*result;
-	unsigned long	number;
+	unsigned long long			number;
 	size_t			i;
 	size_t			len;
 
 	i = 0;
-	number = (unsigned long)n;
+	number = (unsigned long long)n;
 	len = (size_t)ft_get_len_lg(number);
 	result = ft_initialise_result_lg(len);
 	if (!result)
 		return (NULL);
 	while (len > 0)
 	{
-		result[i] = number / (ft_power(10, len - 1)) + '0';
-		number = number % (ft_power(10, len - 1));
+		result[i] = number / (ft_power5(10, len - 1)) + '0';
+		number = number % (ft_power5(10, len - 1));
 		i++;
 		len--;
 	}
@@ -41,7 +43,7 @@ char	*ft_itoa_long(unsigned long n)
 	return (result);
 }
 
-char	*ft_initialise_result_lg(size_t len)
+char	*ft_initialise_result_lg(unsigned long long len)
 {
 	char	*result;
 
@@ -52,21 +54,30 @@ char	*ft_initialise_result_lg(size_t len)
 	return (result);
 }
 
-unsigned long	ft_get_len_lg(unsigned long n)
+unsigned long long	ft_get_len_lg(unsigned long long n)
 {
-	int		i;
-	long	n_copy;
+	size_t		i;
+	unsigned long long	n_copy;
 
-	n_copy = (long)n;
-	if (n_copy < 0)
-	n_copy = -n_copy;
+	n_copy = (unsigned long long)n;
 	i = 1;
 	while (n_copy >= 10)
 	{
 		n_copy = n_copy / 10;
 		i++;
 	}
-	return ((size_t)i);
+	return ((unsigned long long)i);
+}
+
+unsigned long long	ft_power5(unsigned long long nb, unsigned long long power)
+{
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	if (power == 2)
+		return (nb * nb);
+	return (nb * ft_power5(nb, power - 1));
 }
 /*
 int main(int ac, char **av)

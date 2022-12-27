@@ -6,20 +6,20 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:42:27 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:18:59 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
 
-size_t	ft_get_len3(long n);
+size_t	ft_get_len3(unsigned long n);
 
-char	*ft_initialise_result3(long *number, size_t *i, size_t len);
+char	*ft_initialise_result3(size_t len);
 
-long	ft_power3(long nb, long power);
+long	ft_power3(unsigned long nb, long power);
 
-char	*ft_itoa_hexa(long n)
+char	*ft_itoa_hexa(unsigned long n)
 {
 	char	*result;
 	long	number;
@@ -27,9 +27,9 @@ char	*ft_itoa_hexa(long n)
 	size_t	len;
 
 	i = 0;
-	number = (long)n;
+	number = (unsigned long)n;
 	len = ft_get_len3(number);
-	result = ft_initialise_result3(&number, &i, len);
+	result = ft_initialise_result3(len);
 	if (!result)
 		return (NULL);
 	while (len > 0)
@@ -43,38 +43,23 @@ char	*ft_itoa_hexa(long n)
 	return (result);
 }
 
-char	*ft_initialise_result3(long *number, size_t *i, size_t len)
+char	*ft_initialise_result3(size_t len)
 {
 	char	*result;
 
-	if (*number < 0)
-	{
-		result = (char *)malloc(sizeof(char) * (len + 2));
-		if (!result)
-			return (NULL);
-		ft_memset(result, 0, len + 2);
-		result[*i] = '-';
-		*number = *number * -1;
-		*i = *i + 1;
-	}
-	else
-	{
-		result = (char *)malloc(sizeof(char) * (len + 1));
-		if (!result)
-			return (NULL);
-		ft_memset(result, 0, len + 1);
-	}
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	ft_memset(result, 0, len + 1);
 	return (result);
 }
 
-size_t	ft_get_len3(long n)
+size_t	ft_get_len3(unsigned long n)
 {
 	long	i;
 	long	n_copy;
 
 	n_copy = (long)n;
-	if (n_copy < 0)
-	n_copy = -n_copy;
 	i = 1;
 	while (n_copy >= 16)
 	{
@@ -84,10 +69,8 @@ size_t	ft_get_len3(long n)
 	return ((size_t)i);
 }
 
-long	ft_power3(long nb, long power)
+long	ft_power3(unsigned long nb, long power)
 {
-	if (power < 0)
-		return (0);
 	if (power == 0)
 		return (1);
 	if (power == 1)

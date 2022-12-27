@@ -6,26 +6,27 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:17:19 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 13:33:43 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
 
-char	*ft_modify_str(t_flag_list **flag_list, const char *str, va_list *args)
+char	*ft_modify_str(t_flag_list **flag_list, const char *str, va_list *args,
+	size_t *size)
 {
 	t_flag_list	*flag;
 	char		*to_return;
 
 	to_return = (char *)ft_strdup(str);
-	flag = first_flag(flag_list, to_return);
+	flag = first_flag(flag_list, to_return, size);
 	while (flag)
 	{
-		to_return = (*(flag->func_replace))(to_return, flag, args);
+		to_return = (*(flag->func_replace))(to_return, flag, args, size);
 		if (!to_return)
 			return (NULL);
-		flag = first_flag(flag_list, to_return);
+		flag = first_flag(flag_list, to_return, size);
 	}
 	return (to_return);
 }

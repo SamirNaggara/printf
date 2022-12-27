@@ -8,6 +8,7 @@ SOURCES	=	./ft_printf.c \
 				./ft_main/ft_init_flag.c \
 				./ft_main/ft_modify_str.c \
 				./ft_libft_add/ft_itoa_hexa.c \
+				./ft_libft_add/ft_itoa_hexa_ulong.c \
 				./ft_libft_add/ft_itoa_unsigned_long.c \
 				./ft_libft_add/ft_putstr.c \
 				./ft_libft_add/ft_strtoupper.c \

@@ -6,18 +6,12 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:42:27 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 20:37:52 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 22:47:53 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
-
-ulong	ft_get_len4(ulong n);
-
-char	*ft_initialise_result4(ulong len);
-
-ulong	ft_power4(ulong nb, ulong power);
 
 char	*ft_itoa_hexa_ulong(ulong n)
 {
@@ -46,7 +40,6 @@ char	*ft_itoa_hexa_ulong(ulong n)
 char	*ft_initialise_result4(ulong len)
 {
 	char	*result;
-
 
 	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)

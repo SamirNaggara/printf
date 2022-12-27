@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 18:37:20 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/26 00:35:16 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 22:42:45 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	ft_lstflag_clear(t_flag_list **lst, void (*del)(void *))
 		free(tmp);
 	}
 	*lst = NULL;
+	free(lst);
 }

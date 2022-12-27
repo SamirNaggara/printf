@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:17:19 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/27 13:33:43 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 22:21:25 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,39 @@
 #include "../ft_printf.h"
 
 char	*ft_modify_str(t_flag_list **flag_list, const char *str, va_list *args,
-	size_t *size)
+	t_infos *infos)
 {
 	t_flag_list	*flag;
 	char		*to_return;
 
+	*(infos->prev) = 0;
 	to_return = (char *)ft_strdup(str);
-	flag = first_flag(flag_list, to_return, size);
+	flag = first_flag(flag_list, to_return, infos->size, infos->prev);
 	while (flag)
 	{
-		to_return = (*(flag->func_replace))(to_return, flag, args, size);
+		to_return = (*(flag->func_replace))(to_return, flag, args, infos);
 		if (!to_return)
 			return (NULL);
-		flag = first_flag(flag_list, to_return, size);
+		flag = first_flag(flag_list, to_return, infos->size, infos->prev);
 	}
 	return (to_return);
 }
+// char	*handle_percent(char *str, size_t *size)
+// {
+// 	size_t	i;
+// 	char	*to_return;
+
+// 	i = 0;
+// 	to_return = strdup(str);
+// 	while (i < *size)
+// 	{
+// 		if (to_return[i] == '%' && to_return[i + 1] == '%')
+// 			to_return = remove_one_char(to_return, i, size);
+// 		i++;
+// 	}
+// 	free(str);
+// 	return (to_return);
+// }
 /*
 if (flag->type == 'c')
 	to_return = c_replace(to_return, flag, args);

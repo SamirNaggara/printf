@@ -6,25 +6,19 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 00:46:32 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/27 13:04:17 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 22:48:53 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
 
-unsigned long long	ft_get_len_lg(unsigned long long n);
-
-char			*ft_initialise_result_lg(unsigned long long len);
-
-unsigned long long	ft_power5(unsigned long long nb, unsigned long long power);
-
 char	*ft_itoa_long(unsigned int n)
 {
-	char			*result;
+	char						*result;
 	unsigned long long			number;
-	size_t			i;
-	size_t			len;
+	size_t						i;
+	size_t						len;
 
 	i = 0;
 	number = (unsigned long long)n;
@@ -56,7 +50,7 @@ char	*ft_initialise_result_lg(unsigned long long len)
 
 unsigned long long	ft_get_len_lg(unsigned long long n)
 {
-	size_t		i;
+	size_t				i;
 	unsigned long long	n_copy;
 
 	n_copy = (unsigned long long)n;

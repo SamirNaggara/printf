@@ -6,18 +6,12 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 01:42:27 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/27 13:18:59 by snaggara         ###   ########.fr       */
+/*   Updated: 2022/12/27 22:48:23 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include "../ft_printf.h"
-
-size_t	ft_get_len3(unsigned long n);
-
-char	*ft_initialise_result3(size_t len);
-
-long	ft_power3(unsigned long nb, long power);
 
 char	*ft_itoa_hexa(unsigned long n)
 {

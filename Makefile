@@ -15,6 +15,7 @@ SOURCES	=	./ft_printf.c \
 				./ft_list_helper/ft_lst_flag_add_back.c \
 				./ft_list_helper/ft_lst_flag_new.c \
 				./ft_list_helper/ft_lstflag_clear.c\
+				./ft_list_helper/ft_init_infos.c\
 				./ft_replace/c_replace.c\
 				./ft_replace/d_replace.c\
 				./ft_replace/i_replace.c\

@@ -6,7 +6,7 @@
 /*   By: snaggara <snaggara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 22:43:10 by snaggara          #+#    #+#             */
-/*   Updated: 2022/12/27 22:50:25 by snaggara         ###   ########.fr       */
+/*   Updated: 2023/05/30 14:07:57 by snaggara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdarg.h>
 # include <string.h>
 
+# ifndef FD_TO_WRITE
+#  define FD_TO_WRITE 1
+# endif
 typedef struct s_infos
 {
 	size_t				*size;
@@ -61,7 +64,7 @@ char				*xup_replace(char *str, t_flag_list *flag, va_list *args,
 						t_infos *infos);
 char				*pc_replace(char *str, t_flag_list *flag, va_list *args,
 						t_infos *infos);
-void				ft_putstr(char *str, size_t *size);
+void				ft_putstr(char *str, size_t *size, int fd);
 char				*ft_itoa_long(unsigned int n);
 char				*ft_itoa_hexa(unsigned long n);
 char				*ft_itoa_hexa_ulong(ulong n);
